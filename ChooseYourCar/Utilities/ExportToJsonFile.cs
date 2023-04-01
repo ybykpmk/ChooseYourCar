@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -23,7 +23,7 @@ namespace ChooseYourCar.Utilities
                 UseShellExecute = true
             });
 
-            Console.WriteLine("Exported Json file is saved");
+            Console.WriteLine("The exported Json file has been saved, now you can press the key to exit the console");
         }
     }
 }
