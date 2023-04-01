@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using CefSharp;
 using CefSharp.OffScreen;
 using ChooseYourCar.Entities;
@@ -71,42 +73,14 @@ namespace ChooseYourCar.DataAccess
             currentCar.Vin = carData.vin;
             currentCar.Year = carData.year;
             currentCar.Title = carData.year + " " + carData.make + " " + carData.model + " " + carData.trim;
-            currentCar.Url = searchUrl + $"vehicledetail/{carData.listing_id}";
+            currentCar.Url = "https://www.cars.com/" + $"vehicledetail/{carData.listing_id}";
 
-            if (carData.badges != null && carData.badges.Count > 0 && carData.badges.Contains("great_deal"))
-            {
-                currentCar.CarBadges.IsGreatDeal = true;
-            }
-            else
-            {
-                currentCar.CarBadges.IsGreatDeal = false;
-            }
+            int badgeArrayLentgh = carData.badges.Count;
+            currentCar.Badges=new string[badgeArrayLentgh];
 
-            if (carData.badges != null && carData.badges.Count > 0 && carData.badges.Contains("home_delivery"))
+            for (int x = 0; x < badgeArrayLentgh; x++)
             {
-                currentCar.CarBadges.IsHomeDelivery = true;
-            }
-            else
-            {
-                currentCar.CarBadges.IsHomeDelivery = false;
-            }
-
-            if (carData.badges != null && carData.badges.Count > 0 && carData.badges.Contains("price_drop_in_cents"))
-            {
-                currentCar.CarBadges.IsPriceDropInCents = true;
-            }
-            else
-            {
-                currentCar.CarBadges.IsPriceDropInCents = false;
-            }
-
-            if (carData.badges != null && carData.badges.Count > 0 && carData.badges.Contains("virtual_appt"))
-            {
-                currentCar.CarBadges.IsVirtualAppointments = true;
-            }
-            else
-            {
-                currentCar.CarBadges.IsVirtualAppointments = false;
+                currentCar.Badges[x] = carData.badges[x];
             }
 
             int carImageCount = Convert.ToInt32((await browser.EvaluateScriptAsync($"document.querySelectorAll('div[data-tracking-type=\"srp-vehicle-card\"]')[{i}].querySelectorAll('div[class=\"image-wrap\"').length"))?.Result?.ToString());

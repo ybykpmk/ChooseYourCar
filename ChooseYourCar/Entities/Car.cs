@@ -11,13 +11,12 @@ namespace ChooseYourCar.Entities
         public Car()
         {
             PriceHistories = new List<PriceHistory>();
-            CarBadges = new CarBadge();    
             CarImageUrls = new List<string>();
             HomeDeliveryMessages= new List<string>();
         }
+        public string[] Badges { get; set; }
         public string BodyStyle { get; set; }
         public string CanonicalMmt { get; set; }
-        public CarBadge CarBadges { get; set; }
         public List<string> CarImageUrls { get; set; }
         public string Category { get; set; }
         public bool CertifiedPreowned { get; set; }

@@ -63,17 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObject\Managers\CarManager.cs" />
-    <Compile Include="BusinessObject\Managers\ExportResultToJsonFileManager.cs" />
-    <Compile Include="BusinessObject\Managers\PriceHistoryManager.cs" />
-    <Compile Include="BusinessObject\Managers\SearchOptionsManager.cs" />
     <Compile Include="BusinessObject\Managers\UserManager.cs" />
     <Compile Include="DataAccess\CarDal.cs" />
-    <Compile Include="DataAccess\ExportResultToJsonFileDal.cs" />
-    <Compile Include="DataAccess\PriceHistoryDal.cs" />
-    <Compile Include="DataAccess\SearchOptionsDal.cs" />
     <Compile Include="DataAccess\UserDal.cs" />
     <Compile Include="Entities\Car.cs" />
-    <Compile Include="Entities\CarBadge.cs" />
     <Compile Include="Entities\ExportResultToJsonFile.cs" />
     <Compile Include="Entities\PriceHistory.cs" />
     <Compile Include="Entities\SearchAndResults.cs" />

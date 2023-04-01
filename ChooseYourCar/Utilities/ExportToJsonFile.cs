@@ -16,7 +16,8 @@ namespace ChooseYourCar.Utilities
             string jsonString = JsonConvert.SerializeObject(exportResultToJsonFileList);
             var jsonFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "ExportResult.json");
             File.WriteAllText(jsonFilePath, jsonString);
-            Console.WriteLine("And now all John's activities are getting saved in json file to your desktop {0}",jsonFilePath);
+            Console.WriteLine();
+            Console.WriteLine("And now all John's activities are getting saved in json file to your desktop ({0})",jsonFilePath);
             Process.Start(new ProcessStartInfo(jsonFilePath)
             {
                 UseShellExecute = true
