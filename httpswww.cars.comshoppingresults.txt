@@ -1,7 +1,0 @@
-https://www.cars.com/shopping/results/?
-stock_type=used&
-makes%5B%5D=tesla&
-models%5B%5D=tesla-model_s&
-list_price_max=100000&
-maximum_distance=all&
-zip=94596
