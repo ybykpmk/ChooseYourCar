@@ -29,7 +29,7 @@ namespace ChooseYourCar.DataAccess
                 throw new Exception(string.Format("Page load failed with ErrorCode:{0}, HttpStatusCode:{1}", initialLoadResponse.ErrorCode, initialLoadResponse.HttpStatusCode));
             }
 
-            dynamic rawDataReq = await chromiumWebBrowser.EvaluateScriptAsync("document.querySelector('div[class=\"sds-page-section listings-page\"]').getAttribute(\"data-site-activity\")");
+            dynamic rawDataReq = await chromiumWebBrowser.EvaluateScriptAsync("document.querySelector('div[class=\"sds-page-section listings-page \"]').getAttribute(\"data-site-activity\")");
             var CarRawData = JsonConvert.DeserializeObject(rawDataReq.Result.ToString());
             int carCount = Convert.ToInt32((await chromiumWebBrowser.EvaluateScriptAsync("document.querySelectorAll('div[data-tracking-type=\"srp-vehicle-card\"]').length"))?.Result?.ToString());
 
